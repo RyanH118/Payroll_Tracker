@@ -138,7 +138,7 @@ const displayEmployees = function (employeesArray) {
 
 const trackEmployeeData = function () {
   const employees = collectEmployees();
-
+// this makes a table in the console to see all the info in the array.
   console.table(employees);
 
   displayAverageSalary(employees);
