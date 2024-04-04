@@ -29,6 +29,7 @@ const collectEmployees = function () {
   // Make a confirm to ask if you want to add more employees or not.
   let addMore = confirm("Do you want to add another employee?");
   // When "yes" open another prompt to add more employees.
+  // while loops allows me to add more people.
   while (addMore) {
     employee = {};
 
@@ -54,7 +55,25 @@ const collectEmployees = function () {
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
-}
+  // if there is nothing in the array then the function will return without doing anything.
+  if (employeesArray === null) return;
+
+  // this will be a part of the equation to find the average salary.
+  let totalSalary = 0;
+
+  //this adds everybody in the arrays salary together so we can later divide it to find the aerage.
+  for (let i = 0; i < employeesArray.length; i++) {
+    totalSalary += employeesArray[i].salary;
+  }
+  // this takes the total salary of everyone then divides it by the length of the array to get the average.
+  const averageSalary = totalSalary / employeesArray.length;
+
+  // this will show us in the console what the average salary is in a usd format.
+  console.log(`The average salary is: ${averageSalary.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD"
+  })}`);
+};
 
 // Select a random employee
 const getRandomEmployee = function (employeesArray) {
