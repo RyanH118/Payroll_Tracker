@@ -75,10 +75,23 @@ const displayAverageSalary = function (employeesArray) {
   })}`);
 };
 
+// This was in the mock up so I said why not and added it.
+console.log("===========================")
 // Select a random employee
 // make an array with added employees and use math to get a random employee.
 const getRandomEmployee = function (employeesArray) {
   // TODO: Select and display a random employee
+  // so the function doesnt run if there nothing in the array.
+  if (employeesArray === null) return;
+
+  // math.random does the math to get a random number and then multiplies it by the array length and math.floor takes that number and rounds down to the nearest whole number.
+  const randomPicker = Math.floor(Math.random() * employeesArray.length);
+
+  // This picks the employee by using whatever number we got from the randomPicker.
+  const randomEmployee = employeesArray[randomPicker];
+
+// this will tell us who won in the console.
+  console.log(`Congatulations to ${randomEmployee.firstName} ${randomEmployee.lastName}, our random drawing winner!`);
 
 }
 
