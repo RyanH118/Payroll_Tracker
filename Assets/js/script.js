@@ -69,16 +69,17 @@ const displayAverageSalary = function (employeesArray) {
   const averageSalary = totalSalary / employeesArray.length;
 
   // this will show us in the console what the average salary is in a usd format.
-  console.log(`The average salary is: ${averageSalary.toLocaleString("en-US", {
+  console.log(`The average salary between our ${employeesArray.length} employee(s) is: ${averageSalary.toLocaleString("en-US", {
     style: "currency",
     currency: "USD"
   })}`);
 };
 
 // Select a random employee
+// make an array with added employees and use math to get a random employee.
 const getRandomEmployee = function (employeesArray) {
   // TODO: Select and display a random employee
-  // make an array with added employees and use math to get a random employee.
+
 }
 
 /*
