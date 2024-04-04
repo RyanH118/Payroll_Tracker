@@ -10,19 +10,50 @@ const collectEmployees = function () {
   let employee = {};
 
   // Make prompt for first name.
-  employee.firstName = prompt("Enter first name:")
+  employee.firstName = prompt("Enter first name:");
+  // if I press cancel without writing anything it will cancel the function and return null stopping the code.
+  if (employee.firstName === null) return null;
   // Make prompt for last name.
-  employee.lastName = prompt("Enter last name:")
+  employee.lastName = prompt("Enter last name:");
+  if (employee.lastName === null) return null;
   // Make prompt for salary.
-  employee.salary = prompt("Enter salary:")
+  // parseFloat allows only the first number to be accepted and will return nan if it's another character.
+  // basically means 10000 will work but not 10,000 and also because salaryCell formats into usd so 10000 turns into $10,000 and 10,000 turns into $10.00
+  employee.salary = parseFloat(prompt("Enter salary:"));
+  // this works with the parseFloat because when returned nan it will stp the function.
+  if (isNaN(employee.salary)) return null;
+
+  // adds to the array
+  employees.push(employee);
+
   // Make a confirm to ask if you want to add more employees or not.
+  let addMore = confirm("Do you want to add another employee?");
   // When "yes" open another prompt to add more employees.
-}
+  while (addMore) {
+    employee = {};
+
+    employee.firstName = prompt("Enter first name:");
+    if (employee.firstName === null) return null;
+
+    employee.lastName = prompt("Enter last name:");
+    if (employee.lastName === null) return null;
+
+    employee.salary = parseFloat(prompt("Enter salary:"));
+    if (isNaN(employee.salary)) return null;
+
+    employees.push(employee);
+
+    addMore = confirm("Do you want to add another employee?");
+  }
+
+  // when "no" open employee data and have names sorted by last name and have the data in the console.
+  // this sends to a function that tells it to displayEmployees.
+  return employees;
+};
 
 // Display the average salary
 const displayAverageSalary = function (employeesArray) {
   // TODO: Calculate and display the average salary
-  // when "no" open employee data and have names sorted by last name and have the data in the console.
 }
 
 // Select a random employee
